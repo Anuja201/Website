@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanware Foods - Soya Dairy Products</title>
+    <meta name="description" content="Sanware Foods — Fresh soya-based dairy products. Natural, Delicious, Local." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    :root {
+        --bg: #fbfbfb;
+        --card: #ffffff;
+        --muted: #6b6b6b;
+        --accent: #2b7a4b; /* Darker green */
+        --accent-light: #e9f5ee; /* Light green for logo background */
+        --maxw: 1100px;
+        --radius: 12px;
+        --shadow: 0 6px 18px rgba(16,24,40,0.08);
+        --gap: 18px;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.5;
+    }
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        background: var(--bg);
+        color: #111;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    section {
+    scroll-margin-top: 100px; /* height of sticky header */
+}
+
+
+
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 5px; /* Padding on sides for content */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+
+    /* Header */
+    header {
+        background: var(--card); /* Solid background for header */
+        padding: 4px 0;
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        box-shadow: var(--shadow); /* Shadow to lift it */
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap; /* Allow navigation items to wrap */
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo {
+    width: 60px;
+    height: 60px;
+    background-image: url("logo.jpeg");
+    background-position: center;
+    border-radius: 50%; /* or 50% for a circle */
+    box-shadow: var(--shadow);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white; /* optional if your logo has transparency */
+
+    }
+
+    nav ul {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        flex-wrap: wrap; /* Allow nav links to wrap */
+        justify-content: center; /* Center links when wrapped */
+    }
+
+    nav a {
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: var(--accent-light);
+    }
+
+    .cta {
+        display: inline-block;
+        padding: 10px 16px; /* Adjusted padding */
+        background: var(--accent);
+        color: white;
+        border-radius: 10px;
+        white-space: nowrap; /* Prevent phone number from breaking */
+        transition: background-color 0.3s ease;
+    }
+
+    .cta:hover {
+        background-color: #226b3e; /* Slightly darker green on hover */
+    }
+
+    /* Main Content Sections */
+    main {
+        padding-top: 28px; /* Space below header */
+    }
+
+    section {
+        margin-top: 40px; /* Space between sections */
+    }
+    
+    h1, h2, h3 {
+        color: #111;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    /* Hero */
+    .hero {
+        background-color: #f8f0d7;
+        margin-top: 0px;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        align-items: center;
+        padding: 50px 0;
+        overflow: hidden;
+        min-height: 200px; /* Add this */
+    }
+
+    /* .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0; 
+        background-image: url('https://s30386.pcdn.co/wp-content/uploads/2021/06/soy-foods.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px);
+        transform: scale(1.03); 
+        z-index: 0;
+        will-change: transform, filter;
+    }
+    .hero > * {
+        position: relative;
+        z-index: 1;
+    } */
+
+    .hero-inner {
+        margin-left: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .title {
+        font-size: 2.5em; /* Larger title */
+        margin: 0;
+        line-height: 1.2;
+        font-weight: 700;
+    }
+
+    .lead {
+        color: var(--muted);
+        margin: 0;
+        font-size: 1.1em;
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .hero-actions .cta {
+        padding: 12px 20px; /* Larger buttons */
+        font-size: 1.05em;
+    }
+
+    .hero-actions a:not(.cta) {
+        padding: 12px 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .hero-actions a:not(.cta):hover {
+        background-color: #f0f0f0;
+    }
+
+    .info-cards-wrapper {
+        margin-top: 30px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .info-card {
+        background: var(--card);
+        padding: 10px 15px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        font-size: 0.9em;
+    }
+
+    /* About Section */
+    .about-grid {
+        display: grid;
+        gap: var(--gap);
+        align-items: center; /* Align items vertically */
+    }
+
+    .about-aside {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        border-radius: var(--radius);
+        overflow: hidden;
+    }
+
+    .about-aside img {
+        width: 100%;
+        display: block;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .card {
+        background: var(--card);
+        padding: 25px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+    }
+
+    .card ul {
+        list-style: none;
+        padding: 0;
+        margin: px 0 0;
+    }
+
+    .card ul li {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .card ul li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        color: var(--accent);
+        font-size: 0.8em;
+    }
+
+    /* Products Section */
+        /* Products Section - smaller cards and images, keep text same */
+        .product-grid {
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* smaller cards */
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .product {
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, #fff, #fbfbfb);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            padding: 4px; /* smaller card padding */
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-3px);
+        }
+
+        .p-thumb img {
+            width: 100%;
+            aspect-ratio: 4/3; /* same ratio */
+            height: 200px; /* smaller height */
+            object-fit: cover;
+            display: block;
+        }
+
+        .p-body {
+            padding: 8px 10px; /* slightly smaller padding, text unchanged */
+            display: flex;
+            flex-direction: column;
+            gap: 6px; /* keep spacing */
+        }
+        .contact-link {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-link:hover {
+            text-decoration: underline;
+            color: #226b3e;
+        }
+
+    /*contact*/
+    .message {
+        max-width: 500px;      /* limits form width on large screens */
+        margin: 0 auto 40px;   /* centers horizontally and adds bottom margin */
+        padding: 0 15px;       /* padding for mobile screens */
+        box-sizing: border-box;
+    }
+    textarea {
+        font-family: inherit;
+        font-size: inherit;
+    }
+
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--gap);
+    }
+
+    .contact-info-block {
+        padding: 25px;
+    }
+
+    .contact-info-block .detail {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 12px;
+        font-size: 1.05em;
+    }
+
+    .contact-info-block .detail i {
+        color: var(--accent);
+        font-size: 1.2em;
+        margin-top: 3px;
+    }
+
+    form {
+        display: grid;
+        gap: 12px;
+    }
+
+    input, textarea, select {
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #e6e6e6;
+        font-size: 1em;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 0;
+        background: var(--accent);
+        color: white;
+        font-weight: 600;
+        font-size: 1.05em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #226b3e;
+    }
+
+    .checkbox-group {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .checkbox-group label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.95em;
+        color: var(--muted);
+    }
+
+    .checkbox-group input[type="checkbox"] {
+        width: auto;
+        margin: 0;
+    }
+
+    /* Footer */
+    footer {
+        margin-top: 50px;
+        padding: 30px 0;
+        background-color: #f0f0f0; /* Light gray background */
+        color: var(--muted);
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        text-align: center; /* Center on small screens */
+    }
+
+    .footer-brand-info {
+        flex-grow: 1; /* Allow brand info to grow */
+        text-align: left; /* Align brand info left */
+    }
+
+    .footer-brand-info strong {
+        color: #111;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center; /* Center links on wrap */
+    }
+
+    .footer-links a {
+        color: var(--muted);
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent);
+    }
+    
+    /* Utility Classes */
+    .muted {
+        color: var(--muted);
+    }
+    .micro {
+        font-size: 0.85em;
+    }
+    .text-center {
+        text-align: center;
+    }
+    .flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Responsive Overrides */
+    @media(min-width:768px){
+        .nav {
+            flex-wrap: nowrap; /* Prevent wrapping in header on larger screens */
+        }
+        nav ul {
+            flex-wrap: nowrap;
+        }
+        .hero {
+            grid-template-columns: 1fr 450px; /* Two columns for hero */
+        }
+        .about-grid {
+            grid-template-columns: 1fr 1fr; /* Two columns for about, equally sized */
+        }
+        .contact-grid {
+            grid-template-columns: 1fr 450px; /* Two columns for contact */
+        }
+        .footer-content {
+            text-align: left; /* Align footer content left on larger screens */
+        }
+    }
+    @media(min-width:1024px){
+        .title {
+            font-size: 3em;
+        }
+        .product-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* More columns on large screens */
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <div class="logo">
+                </div>
+
+                <div>
+                    <div style="font-weight:700">Sanware Foods</div>
+                    <div class="micro muted">Soya-based dairy alternatives</div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a class="cta" href="https://wa.me/918080145747">WhatsApp</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="home" class="hero">
+            <div class="hero-inner">
+                <h1 class="title">Naturally Fresh, Deliciously Soya</h1>
+                <p class="lead">Sanware Foods brings you nutrient-rich soya products crafted with care. Reliable quality, made for everyday use.</p>
+                <div class="hero-actions">
+                    <a class="cta" href="https://wa.me/918080145747?text=Hello%20Sanware%20Foods,%20I%20would%20like%20to%20know%20more%20about%20your%20products" target="_blank">Message on WhatsApp</a>
+                    <a href="#products">Browse Products</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="text-center">About Sanware Foods</h2>
+            <div class="about-grid">
+                <div class="about-aside">
+                    <img src="https://maitri.mahaonline.gov.in/HTMLTemplate/Chhatrapati-Sambhajinagar-Region/images/latur_soyabean.png" alt="Process of making soya milk">
+                </div>
+                <div>
+                    <p>Sanware Foods is a local maker of soya-based dairy alternatives focusing on taste, nutrition, and freshness. We use quality soya ingredients and traditional methods to deliver paneer, milk, curd
+                    and refreshing beverages that suit daily needs.</p>
+                    <ul>
+                        <li><strong>Founder:</strong> Shubham Chavan</li>
+                        <li><strong>Highlights:</strong> Locally produced, preservative-aware, soya-forward recipes.</li>
+                    </ul>
+                    <h3>Why choose Sanware?</h3>
+                    <ul>
+                        <li>Fresh daily batches</li>
+                        <li>High-protein soya products</li>
+                        <li>Eco-friendly packaging options</li>
+                        <li>Custom orders available for event</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    <section id="products">
+    <h2 class="text-center">Products</h2>
+    <p class="muted micro text-center">Category: Dairy (Soya-based)</p>
+    <div class="product-grid">
+        <div class="product">
+            <div class="p-thumb"><img src="https://5.imimg.com/data5/TV/TV/UJ/SELLER-3033080/soya-paneer.jpg" alt="Freshly made soya paneer" loading="lazy"></div>
+            <div class="p-body">
+                <h4>Soya Paneer</h4>
+                <div class="muted micro">Firm texture, great for cooking and snacks.</div>
+                <div class="price">
+                <a href="https://wa.me/918080145747?text=Hello%20Sanware%20Foods,%20I%20want%20to%20know%20the%20price%20of%20your%20product."
+                    class="contact-link"
+                    target="_blank">Get Price on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="p-thumb"><img src="https://theburningkitchen.com/wp-content/uploads/2018/03/Soya-Bean-Milk-3W.jpg" alt="Soya milk" loading="lazy"></div>
+            <div class="p-body">
+                <h4>Soya Milk</h4>
+                <div class="muted micro">Creamy and smooth — ideal for cereals, tea, and coffee.</div>
+                <div class="price">
+                <a href="https://wa.me/918080145747?text=Hello%20Sanware%20Foods,%20I%20want%20to%20know%20the%20price%20of%20your%20product."
+                    class="contact-link"
+                    target="_blank">Get Price on WhatsApp</a>
+                </div>            
+            </div>
+        </div>
+        <div class="product">
+            <div class="p-thumb"><img src="data:image/jpeg;base64,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" alt="Soya curd" loading="lazy"></div>
+            <div class="p-body">
+                <h4>Soya Curd</h4>
+                <div class="muted micro">Thick, tangy soya curd made with probiotic culture.</div>
+                <div class="price">
+                <a href="https://wa.me/918080145747?text=Hello%20Sanware%20Foods,%20I%20want%20to%20know%20the%20price%20of%20your%20product."
+                    class="contact-link"
+                    target="_blank">Get Price on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-grid">
+        <div class="product">
+            <div class="p-thumb"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS60GMl2zgUjnwG9sqZDRyAB36bMjKXfzGzFA&s" alt="Freshly made soya paneer" loading="lazy"></div>
+            <div class="p-body">
+                <h4>Soya Coffee Powder</h4>
+                <div class="muted micro">Rich soya coffee powder — Start your mornings with natural energy.</div>
+                <div class="price">
+                <a href="https://wa.me/918080145747?text=Hello%20Sanware%20Foods,%20I%20want%20to%20know%20the%20price%20of%20your%20product."
+                    class="contact-link"
+                    target="_blank">Get Price on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="p-thumb"><img src="https://www.dial4trade.com/uploaded_files/product_images/soya-lassi-u-1140923924085523939.jpg" alt="Soya lessi" loading="lazy"></div>
+            <div class="p-body">
+                <h4>Soya Lassi</h4>
+                <div class="muted micro">Refreshing soya lassi — perfect for summer and digestion.</div>
+                <div class="price">
+                <a href="https://wa.me/918080145747?text=Hello%20Sanware%20Foods,%20I%20want%20to%20know%20the%20price%20of%20your%20product."
+                    class="contact-link"
+                    target="_blank">Get Price on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="p-thumb"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDkqsEtA1CPYZnjoXpODtRXWVW_2iNajU17fbhJKjqrj0Lz31WiPJ7OdoUcnKLQUU1MXE&usqp=CAU" alt="Soya curd" loading="lazy"></div>
+            <div class="p-body">
+                <h4>Soya Buttermilk</h4>
+                <div class="muted micro">Light and cool soya buttermilk — great after meals..</div>
+                <div class="price">
+                <a href="https://wa.me/918080145747?text=Hello%20Sanware%20Foods,%20I%20want%20to%20know%20the%20price%20of%20your%20product."
+                    class="contact-link"
+                    target="_blank">Get Price on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+
+        <section id="contact" class="message">
+            <h2 class="text-center">Contact & Enquiries</h2>
+
+                <form id="enquiryForm" class="card" onsubmit="handleSubmit(event)">
+                    <h3>Send us a message</h3>
+                    <label class="micro">Name<input name="name" required placeholder="Your name"/></label>
+                    <label class="micro">Phone<input name="phone" required placeholder="Phone number"/></label>
+                    <label class="micro">Email<input name="email" type="email" placeholder="you@example.com"/></label>
+                    <label class="micro">Message<textarea name="message" rows="4" placeholder="Your message"></textarea></label>
+
+                    <div class="checkbox-group">
+                        <label class="micro"><input type="checkbox" id="viaWhatsApp" checked/> Send to WhatsApp</label>
+                        <label class="micro"><input type="checkbox" id="viaEmail" checked/> Send email</label>
+                    </div>
+
+                    <button type="submit">Send Enquiry</button>
+                    <div class="muted micro" style="margin-top:8px">Note: This demo will open WhatsApp (if selected) and prepare an email.</div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand-info">
+                <strong>Sanware Foods</strong>
+                <div class="micro muted">Soya-based dairy products · Owner: Shubham Chavan</div>
+                <div class="micro muted" style="margin-top:5px;">Copyright © by Sanware Foods 2023. All rights reserved.</div>
+            </div>
+            <div class="footer-links">
+                <span class="micro muted">Contact any problem: &nbsp;</span>
+                <a href="tel:8080145747" title="Phone"><i class="fas fa-phone"></i></a>
+                <a href="mailto:sanwarefoods@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://instagram.com/sanware_foods" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/Sanware%20foods" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        function handleSubmit(e){
+            e.preventDefault();
+            const f = e.target;
+            const name = f.name.value.trim();
+            const phone = f.phone.value.trim();
+            const email = f.email.value.trim();
+            const message = f.message.value.trim();
+            const viaWhatsApp = document.getElementById('viaWhatsApp').checked;
+            const viaEmail = document.getElementById('viaEmail').checked;
+
+            const text = `Hello Sanware Foods, I have an enquiry:\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'N/A'}\n\nMessage:\n${message}`;
+
+            if(viaWhatsApp){
+                const wa = `https://wa.me/918080145747?text=${encodeURIComponent(text)}`;
+                window.open(wa,'_blank');
+            }
+
+            if(viaEmail){
+                const subject = encodeURIComponent('Website Enquiry from ' + name);
+                const body = encodeURIComponent(text);
+                window.location.href = `mailto:sanwarefoods@gmail.com?subject=${subject}&body=${body}`;
+            }
+
+            if(!viaWhatsApp && !viaEmail){
+                alert('Please enable at least one delivery method (WhatsApp or Email) using the checkboxes.');
+            }
+        }
+    </script>
+</body>
+</html>
